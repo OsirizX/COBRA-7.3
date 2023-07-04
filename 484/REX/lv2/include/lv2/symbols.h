@@ -139,6 +139,7 @@
 #define cellUsbdClosePipe_symbol						0x2614DC
 #define cellUsbdControlTransfer_symbol					0x2613E0
 #define cellUsbdBulkTransfer_symbol						0x261360
+#define cellUsb000_mount_symbol 						0x26C684
 
 #define decrypt_func_symbol								0x34970
 #define lv1_call_99_wrapper_symbol						0x4EEA8
@@ -391,6 +392,7 @@
 #define cellUsbdClosePipe_symbol						0x2679B8
 #define cellUsbdControlTransfer_symbol					0x2678BC
 #define cellUsbdBulkTransfer_symbol						0x26783C
+#define cellUsb000_mount_symbol 						0x2736FC
 
 #define decrypt_func_symbol								0x38290
 #define lv1_call_99_wrapper_symbol						0x52850

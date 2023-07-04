@@ -8,12 +8,16 @@
 
 #if defined (FIRMWARE_4_84)
 	#define STAGE2_FILE	"/dev_flash/rebug/cobra/stage2.cex"
+  #define STAGE2_USB0	"/dev_usb000/stage2.cex"
 #elif defined (FIRMWARE_4_84DEX)
 	#define STAGE2_FILE	"/dev_flash/rebug/cobra/stage2.dex"
+  #define STAGE2_USB0	"/dev_usb000/stage2.dex"
 #endif
+#define FLAG_NOCOBRA	"/dev_usb000/no_cobra"
 
 void main(void)
 {
+	char *stage2_file = (char *)STAGE2_FILE;
 	void *stage2 = NULL;
 	
 	f_desc_t f;
@@ -31,24 +35,40 @@ void main(void)
 		lv1_write_htab_entry(0, i << 3, pte0, (pte1 & 0xff0000) | 0x190);
 	}
 	
-	if (cellFsStat(STAGE2_FILE, &stat) == 0)
+	// Use external stage2.bin if the file exists (by haxxxen)
+	if (cellFsUtilMount_Usb000() == 0) // Mount dev_usb000
 	{
-		if (cellFsOpen(STAGE2_FILE, CELL_FS_O_RDONLY, &fd, 0, NULL, 0) == 0)
+		if (cellFsStat(STAGE2_USB0, &stat) == 0)
+			stage2_file = (char *)STAGE2_USB0;
+	}
+
+	// Check if exists no_cobra flag in external device
+	if (cellFsStat(FLAG_NOCOBRA, &stat) != 0)
+	{
+		// Load stage2
+		if (cellFsStat(stage2_file, &stat) == 0)
 		{
-			stage2 = alloc(stat.st_size, 0x27);
-			if (stage2)
-			{		
-				if (cellFsRead(fd, stage2, stat.st_size, &rs) != 0)
+			// Avoid loading an empty stage2 or with a size higher than 0x1FE00
+			if(stat.st_size != 0 && stat.st_size < 0x1FE00)
+			{
+				if (cellFsOpen(stage2_file, CELL_FS_O_RDONLY, &fd, 0, NULL, 0) == 0)
 				{
-					dealloc(stage2, 0x27);
-					stage2 = NULL;
-				}
+					stage2 = alloc(stat.st_size, 0x27);
+
+					if(stage2)
+					{		
+						if (cellFsRead(fd, stage2, stat.st_size, &rs) != 0)
+						{
+							dealloc(stage2, 0x27);
+							stage2 = NULL;
+						}						
+					}				
 					
-			}				
-			
-			cellFsClose(fd);
+					cellFsClose(fd);
+				}
+			}
 		}
-	}	
+	}
 
 	f.toc = (void *)MKA(TOC);
 	

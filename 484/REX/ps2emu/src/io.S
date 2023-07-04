@@ -1,5 +1,6 @@
 #include <ps2emu/macros.h.S>
 #include <ps2emu/symbols.h>
+#define decrypt_symbol		0x1377c4
 
 PS2EMU_FUNCTION(ufs_open, ufs_open_symbol)
 PS2EMU_FUNCTION(ufs_close, ufs_close_symbol)
