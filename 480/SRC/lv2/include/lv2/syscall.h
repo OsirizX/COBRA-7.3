@@ -315,7 +315,7 @@
 "	mflr 2\n" \
 "	addi 2, 2, -32\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 0, 32(1)\n" \
 "	mtlr 0\n" \

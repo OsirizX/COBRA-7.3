@@ -7,9 +7,9 @@
 	mtctr	%r0; \
 	bctrl;
 
-.global flash_mount_clone
-
-flash_mount_clone:
+.global .flash_mount_clone
+.type .flash_mount_clone @function
+.flash_mount_clone:
 
 	stdu	%sp, -0xF0(%sp)
 	mflr	%r0

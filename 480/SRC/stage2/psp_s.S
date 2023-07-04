@@ -1,5 +1,5 @@
- .global psp_func1
- psp_func1:
+ .global .psp_func1
+ .psp_func1:
  
  lbz     %r0, 0(%r4)
  addi    %r7, %r4, 0x12

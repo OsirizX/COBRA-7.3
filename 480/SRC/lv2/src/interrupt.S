@@ -1,17 +1,17 @@
 #include <lv2/macros.h.S>
 #include <lv2/symbols.h>
 
-.global suspend_intr
-.global resume_intr
+.global .suspend_intr
+.global .resume_intr
 
-suspend_intr:
+.suspend_intr:
 	mfsprg0 %r9
 	ld	%r3, 0x48(%r9)
 	li	%r0, 2
 	mtmsrd  %r0, 1
 	blr
 	
-resume_intr:
+.resume_intr:
 	mfsprg0 %r9
 	ld	%r3, 0x48(%r9)
 	li	%r0, 0

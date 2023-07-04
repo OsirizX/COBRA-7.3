@@ -210,12 +210,12 @@ static void patch_self(char *src, char *dst, uint32_t sh_offset, uint32_t data_a
 }*/
 static void patch_elf(char *elf, char *stage0, char *bin, uint64_t address, uint64_t stage0_addr)
 {
-	uint64_t elf_size, bin_size;
+	uint64_t elf_size, bin_size, stage0_size;
 	Elf64_Ehdr *ehdr;
 	Elf64_Phdr *phdr;
 	Elf64_Shdr *shdr;
 	FILE *f = fopen(elf, "rb");	
-	
+
 	if (!f)
 	{
 		fprintf(stderr, "Cannot open %s\n", elf);
@@ -241,9 +241,10 @@ static void patch_elf(char *elf, char *stage0, char *bin, uint64_t address, uint
 		fprintf(stderr, "Cannot open %s\n", stage0);
 		exit(-1);
 	}
-	
-	memcpy(buf1+0x10000+stage0_addr, buf3, fread(buf3, 1, sizeof(buf3), f));
+
+  stage0_size = fread(buf3, 1, BUF3_SIZE, f);
 	fclose(f);
+	memcpy(buf1+0x10000+stage0_addr, buf3, stage0_size);
 	
 	ehdr = (Elf64_Ehdr *)buf1;
 	phdr = (Elf64_Phdr *)(buf1+0x40);
@@ -320,7 +321,7 @@ int main(int argc, char *argv[])
 	sscanf(argv[5], "0x%x", &payload_addr);
 	sscanf(argv[6], "0x%x", &stage0_addr);
 	
-	command3("scetool", "--decrypt", self_input, "temp.elf");	
+  command3("scetool", "--decrypt", self_input, "temp.elf");	
 	patch_elf("temp.elf", stage0, payload, payload_addr, stage0_addr);	
 	command15("scetool", "-v", "--sce-type=SELF", "--compress-data=TRUE", "--compress-data=TRUE", "--skip-sections=FALSE", 
 		 "--self-auth-id=1050000003000001", "--self-add-shdrs=TRUE", "--self-vendor-id=05000002", "--self-type=LV2", 

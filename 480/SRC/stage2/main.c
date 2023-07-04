@@ -871,6 +871,10 @@ static INLINE void apply_kernel_patches(void)
 	create_syscall2(11, sys_cfw_lv1_peek);
 }
 
+static int some_func(void) {
+  return(4);
+}
+
 int main(void)
 {
 #ifdef DEBUG
@@ -903,6 +907,5 @@ int main(void)
 #endif
 
 	map_path("/app_home", "/dev_usb000", 0); //Not needed
-
-	return 0;
+  return 0;
 }

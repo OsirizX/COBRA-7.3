@@ -213,15 +213,17 @@
  * the actual underscored call definition.
  */
 
+#define TOSTRING(x) #x
+
 #if !defined(LV1_CALL)
 #ifdef __cplusplus
 #define LV1_CALL(name, in, out, num)                               \
-  extern "C" s64 _lv1_##name(LV1_##in##_IN_##out##_OUT_ARG_DECL);      \
+  extern "C" s64 _lv1_##name(LV1_##in##_IN_##out##_OUT_ARG_DECL) __asm__(TOSTRING(_lv1_##name));      \
   static inline int lv1_##name(LV1_##in##_IN_##out##_OUT_ARG_DECL) \
     {return _lv1_##name(LV1_##in##_IN_##out##_OUT_ARGS);}
 #else
 #define LV1_CALL(name, in, out, num)                               \
-  extern s64 _lv1_##name(LV1_##in##_IN_##out##_OUT_ARG_DECL);      \
+  extern s64 _lv1_##name(LV1_##in##_IN_##out##_OUT_ARG_DECL) __asm__(TOSTRING(_lv1_##name));      \
   static inline int lv1_##name(LV1_##in##_IN_##out##_OUT_ARG_DECL) \
     {return _lv1_##name(LV1_##in##_IN_##out##_OUT_ARGS);}
 #endif

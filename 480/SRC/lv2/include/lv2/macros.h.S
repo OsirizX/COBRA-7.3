@@ -22,8 +22,8 @@
 	
 #define LV2_FUNCTION2(name, address) \
 	.section .name.text, "ax"; \
-	.global name; \
-	name:; \
+	.global .name; \
+	.name:; \
 	stdu	%sp, -0x80(%sp); \
 	mflr	%r0; \
 	std	%r0, 0x90(%sp); \
@@ -42,8 +42,8 @@
 	
 #define LV2_FUNCTION3(name, address) \
 	.section .name.text, "ax"; \
-	.global name; \
-	name:; \
+	.global .name; \
+	.name:; \
 	std	%rtoc, 0x28(%sp); \
 	stdu	%sp, -0x70(%sp); \
 	mflr	%r0; \

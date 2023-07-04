@@ -5,6 +5,7 @@ OBJCOPY		:= ppu-objcopy
 AR 		:= ppu-ar
 STRIP		:= ppu-strip
 INCLUDE		= ../lv2/include ../lv1/include ../debug/include
+PS3DEV = ../../../446/SRC/ps3dev2
 INCLUDE		+= $(PS3DEV)/ppu/ppu/include
 LIBSDIR         =
 LIBS            =

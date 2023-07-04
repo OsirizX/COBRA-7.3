@@ -1,3 +1,4 @@
+PS3DEV = ../../../446/SRC/ps3dev2
 
 clean:
 	rm -f *.o *.elf *.self *.480 *.bin *.map ../lv1/src/*.o ../debug/src/*.o ../lv2/src/*.o

@@ -5,6 +5,7 @@ OBJCOPY		:= ppu-objcopy
 AR 		:= ppu-ar
 STRIP		:= ppu-strip
 INCLUDE		= ../lv2/include ../lv1/include ../debug/include
+PS3DEV = ../../../446/SRC/ps3dev2
 INCLUDE		+= $(PS3DEV)/ppu/ppu/include
 LIBSDIR         =
 LIBS            =
@@ -30,9 +31,10 @@ CFLAGS += -DDEBUG
 endif
 
 LDFLAGS=-nostartfiles -nostdlib -mbig-endian
-LDFLAGS= -T $(NAME).ld -nostartfiles -nostdlib -nodefaultlibs -Wl,-static -Wl,-s -L. $(foreach dir,$(LIBSDIR),-L$(dir)) $(LIBS) -Wl,--gc-sections -Wl,-Map=stage1.map
+#LDFLAGS= -T $(NAME).ld -nostartfiles -nostdlib -nodefaultlibs -Wl,-static -Wl,-s -L. $(foreach dir,$(LIBSDIR),-L$(dir)) $(LIBS) -Wl,--gc-sections -Wl,-Map=stage1.map
+LDFLAGS= -T $(NAME).ld -nostartfiles -nostdlib -nodefaultlibs -Wl,-static -Wl,-s -L. $(foreach dir,$(LIBSDIR),-L$(dir)) $(LIBS) -Wl,-Map=stage1.map
 
-OBJS = start.o main_480D.o flash_mount_480D.o ../lv2/src/libc.o ../lv2/src/memory.o  ../lv2/src/io.o ../lv2/src/thread.o 
+OBJS = start.o flash_mount_480D.o ../lv2/src/libc.o ../lv2/src/memory.o  ../lv2/src/io.o ../lv2/src/thread.o main_480D.o 
 
 ifeq ($(BUILD_TYPE), debug)
 OBJS += ../lv1/src/device.o  ../lv1/src/hvcall.o ../debug/src/debug.o ../debug/src/printf.o 

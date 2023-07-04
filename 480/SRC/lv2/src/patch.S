@@ -2,9 +2,9 @@
 #include <lv2/symbols.h>
 
 	.section 	.clear_icache.text, "ax"
-	.global 	clear_icache
+	.global 	.clear_icache
 
-clear_icache:
+.clear_icache:
 
 	add	%r4, %r3, %r4
 	rldicr	%r3, %r3, 0, 56	
@@ -22,9 +22,9 @@ clear_icache:
 	.previous
 	
 	.section 	.get_call_address.text, "ax"
-	.global		get_call_address
+	.global		.get_call_address
 
-get_call_address:
+.get_call_address:
 
 	ld	%r5, 0(%sp)
 	cmpwi	%r3, 0
@@ -47,9 +47,9 @@ get_call_address:
 	.previous
 	
 	.section	.get_patched_func_call_address.text, "ax"
-	.global 	get_patched_func_call_address
+	.global 	.get_patched_func_call_address
 
-get_patched_func_call_address:
+.get_patched_func_call_address:
 
 	ld 	%r3, 0(%sp)
 	cmpdi	%r3, 0
@@ -63,9 +63,9 @@ get_patched_func_call_address:
 	.previous
 	
 	.section	.get_patched_func_call_address2.text, "ax"
-	.global 	get_patched_func_call_address2
+	.global 	.get_patched_func_call_address2
 
-get_patched_func_call_address2:
+.get_patched_func_call_address2:
 
 	ld 	%r3, 0(%sp)
 	cmpdi	%r3, 0
@@ -82,9 +82,9 @@ get_patched_func_call_address2:
 	.previous
 
 	.section	.read_patched_func_saved_register.text, "ax"
-	.global 	read_patched_func_saved_register
+	.global 	.read_patched_func_saved_register
 
-read_patched_func_saved_register:
+.read_patched_func_saved_register:
 
 	addi	%r3, %r3, -2
 	sldi	%r3, %r3, 3
@@ -95,9 +95,9 @@ read_patched_func_saved_register:
 	.previous
 	
 	.section	.read_patched_func_saved_register2.text, "ax"
-	.global 	read_patched_func_saved_register2
+	.global 	.read_patched_func_saved_register2
 
-read_patched_func_saved_register2:
+.read_patched_func_saved_register2:
 
 	addi	%r3, %r3, -2
 	sldi	%r3, %r3, 3
@@ -109,9 +109,9 @@ read_patched_func_saved_register2:
 	.previous
 
 	.section	.write_patched_func_saved_register.text, "ax"
-	.global 	write_patched_func_saved_register
+	.global 	.write_patched_func_saved_register
 
-write_patched_func_saved_register:
+.write_patched_func_saved_register:
 
 	addi	%r3, %r3, -2
 	sldi	%r3, %r3, 3
@@ -122,9 +122,9 @@ write_patched_func_saved_register:
 	.previous
 	
 	.section	.write_patched_func_saved_register2.text, "ax"
-	.global 	write_patched_func_saved_register2
+	.global 	.write_patched_func_saved_register2
 
-write_patched_func_saved_register2:
+.write_patched_func_saved_register2:
 
 	addi	%r3, %r3, -2
 	sldi	%r3, %r3, 3
@@ -136,8 +136,8 @@ write_patched_func_saved_register2:
 	.previous
 		
 	.section	.call_hooked_function.text, "ax"
-	.global 	call_hooked_function
-call_hooked_function:
+	.global 	.call_hooked_function
+.call_hooked_function:
 
 	std	%rtoc, 0x28(%sp)
 	stdu	%sp, -0x70(%sp)

@@ -2,6 +2,7 @@ OUTPUT_FORMAT("elf64-powerpc")
 OUTPUT_ARCH(powerpc:common64)
 
 __base = 0xBAADCAFE00000000;
+//__base = 0x8000000000000000;
 
 ENTRY(_start)
 
@@ -33,7 +34,7 @@ SECTIONS {
 		*(.sdata)
 		*(.sdata.*)
 	}
-	
+
 	.bss : {
 		*(.sbss)
 		*(.sbss.*)
@@ -42,15 +43,16 @@ SECTIONS {
 		*(.bss.*)
 		LONG(0)
 	}
-	
+
 	. = ALIGN(32);
 	__toc_start = .;
 	__toc = . + 0x8000;
+	//__toc = .;
 	.toc : {
 		*(.toc)
 		*(.toc.*)
 	}
-	__toc_end = .;		
+	__toc_end = .;
 	__opd_start = .;
 	.opd : {
 		*(.opd)
@@ -59,7 +61,7 @@ SECTIONS {
 	__opd_end = .;
 	__reloc_end = .;
 
-	__self_end = .;	
+	__self_end = .;
 }
 
 

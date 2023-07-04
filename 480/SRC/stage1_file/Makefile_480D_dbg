@@ -5,6 +5,7 @@ OBJCOPY		:= ppu-objcopy
 AR 		:= ppu-ar
 STRIP		:= ppu-strip
 INCLUDE		= ../lv2/include ../lv1/include ../debug/include
+PS3DEV = ../../../446/SRC/ps3dev2
 INCLUDE		+= $(PS3DEV)/ppu/ppu/include
 LIBSDIR         =
 LIBS            =
@@ -18,11 +19,7 @@ PAYLOAD_ADDR	= 0x7f0000
 STAGE0 		= ../stage0_file/stage0_480D.bin
 STAGE0_ADDR_DEX	= 0x273948
 
-
-
-CFLAGS = -ffunction-sections -fdata-sections -Os -m64 -fno-builtin -fno-exceptions \
-			   -Os -Wall -Wno-strict-aliasing $(foreach dir,$(INCLUDE),-I$(dir)) \
-			   -DLV2 -DFIRMWARE_4_80DEX -DCFW -ffreestanding 
+CFLAGS = -ffunction-sections -fdata-sections -O0 -m64 -fno-builtin -fno-exceptions -O0 -Wall -Wno-strict-aliasing $(foreach dir,$(INCLUDE),-I$(dir)) -DLV2 -DFIRMWARE_4_80DEX -DCFW -ffreestanding 
 CFLAGS += --std=gnu99
 
 ifeq ($(BUILD_TYPE), debug)
@@ -31,11 +28,12 @@ endif
 
 LDFLAGS=-nostartfiles -nostdlib -mbig-endian
 LDFLAGS= -T $(NAME).ld -nostartfiles -nostdlib -nodefaultlibs -Wl,-static -Wl,-s -L. $(foreach dir,$(LIBSDIR),-L$(dir)) $(LIBS) -Wl,--gc-sections -Wl,-Map=stage1.map
+#LDFLAGS= -T $(NAME).ld -nostartfiles -nostdlib -nodefaultlibs -Wl,-static -Wl,-s -L. $(foreach dir,$(LIBSDIR),-L$(dir)) $(LIBS) -Wl,-Map=stage1.map
 
-OBJS = start.o main_480D.o flash_mount_480D.o ../lv2/src/libc.o ../lv2/src/memory.o  ../lv2/src/io.o ../lv2/src/thread.o 
+OBJS = start.o flash_mount_480D.o ../lv2/src/patch.o ../lv2/src/interrupt.o ../lv2/src/libc.o ../lv2/src/memory.o  ../lv2/src/io.o ../lv2/src/thread.o main_480D.o
 
 ifeq ($(BUILD_TYPE), debug)
-OBJS += ../lv1/src/device.o  ../lv1/src/hvcall.o ../debug/src/debug.o ../debug/src/printf.o 
+OBJS += ../lv1/src/device.o  ../lv1/src/hvcall.o ../debug/src/debug.o ../debug/src/printf.o
 endif
 
 
@@ -44,7 +42,6 @@ all: $(TARGET).bin
 %.bin: %.elf
 	$(OBJCOPY) -O binary $< $@
 	$(LV2GEN) $(STAGE0) $(TARGET).bin $(LV2_KERNEL) $(KERNEL_TARGET) $(PAYLOAD_ADDR) $(STAGE0_ADDR_DEX)
-	
 
 $(TARGET).elf: $(OBJS) $(NAME).ld
 	$(CC) $(LDFLAGS) -o $@ $(OBJS)

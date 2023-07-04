@@ -1,9 +1,9 @@
 #include <lv2/macros.h.S>
 #include <lv2/symbols.h>
 
-.global get_current_process
+.global .get_current_process
 
-get_current_process:
+.get_current_process:
 	mfsprg0 %r3
 	lhz	%r0, 0xC0(%r3)
 	cmpwi   cr7, %r0, 3

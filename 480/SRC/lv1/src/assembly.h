@@ -91,8 +91,8 @@ see file COPYING or http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 #define _GLOBAL(name) \
   .section .name.text, "ax"; \
-  .global name; \
-  name: \
+  .global .name; \
+  .name: \
   
 
 #endif

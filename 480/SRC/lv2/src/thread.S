@@ -16,16 +16,16 @@ LV2_FUNCTION(allocate_user_stack, allocate_user_stack_symbol)
 LV2_FUNCTION(deallocate_user_stack, deallocate_user_stack_symbol)
 #endif
 
-.global get_current_thread
-get_current_thread:
+.global .get_current_thread
+.get_current_thread:
 
 	mfsprg0 %r9
 	ld	%r4, 0xA0(%r9)
 	ld	%r3, 0x40(%r4)
 	blr
 
-.global get_current_thread_name
-get_current_thread_name:
+.global .get_current_thread_name
+.get_current_thread_name:
 
 	mfsprg0 %r3
 	blr

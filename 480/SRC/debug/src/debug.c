@@ -249,8 +249,8 @@ int64_t debug_print(const char* buffer, size_t msgsize)
 #ifdef PS2HWEMU
 PS2EMU_PATCHED_FUNCTION(int64_t, debug_printf, (const char *fmt, ...))
 #else
-//#define _debug_printf debug_printf
-int64_t _debug_printf(const char* fmt, ...)
+#define _debug_printf debug_printf
+//int64_t _debug_printf(const char* fmt, ...)
 #endif /* PS2HWEMU */
 #elif defined(LV2)
 LV2_PATCHED_FUNCTION(int64_t,  debug_printf, (const char* fmt, ...))

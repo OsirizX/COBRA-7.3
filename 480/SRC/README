@@ -1,0 +1,33 @@
+vim stage0_file/Makefile_480D
+LDFLAGS= -nostdlib -nodefaultlibs -Wl,-static -Wl,-s -L. $(foreach dir,$(LIBSDIR),-L$(dir)) $(LIBS) -Wl,--gc-sections 
+vim stage1_file/Makefile_480D_dbg
+PS3DEV = ../../../446/SRC/ps3dev2
+vim lv1/include/lv1/lv1call.h
+{return lv1_##name(LV1_##in##_IN_##out##_OUT_ARGS);}
+vim lv2/incude/lv2/syscall.h
+// replace all
+"	bl .L._"#name"\n" \
+// with
+"	bl .L."#name"\n" \
+vim lv2/include/lv2/lv2.h
+"	bl .L."#name"\n" \
+vim lv2/include/lv2/patch.h
+"	bl .L."#name"\n" \
+vim lv2/src/interrupt.S
+.global .suspend_intr
+.global .resume_intr
+.suspend_intr:
+.resume_intr:
+vim lv2/src/patch.S
+.global 	.clear_icache
+.clear_icache:
+
+cd lv2gen480
+make clean && make
+cd stage0_file
+make clean && make -f Makefile_480D
+cd stage1_file
+make clean && make -f Makefile_480D_dbg
+cd stage2
+make clean && make -f Makefile_480D_DEBUG
+

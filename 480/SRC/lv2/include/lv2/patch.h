@@ -115,7 +115,7 @@
 "	mflr 2\n" \
 "	addi 2, 2, -16\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 0, 32(1)\n" \
 "	mtlr 0\n" \
@@ -153,7 +153,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -16\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 0, 32(1)\n" \
 "	mtlr 0\n" \
@@ -191,7 +191,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -20\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 0, 32(1)\n" \
 "	mtlr 0\n" \
@@ -231,7 +231,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -24\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 0, 32(1)\n" \
 "	mtlr 0\n" \
@@ -273,7 +273,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -28\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 0, 32(1)\n" \
 "	mtlr 0\n" \
@@ -317,7 +317,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -32\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 0, 32(1)\n" \
 "	mtlr 0\n" \
@@ -363,7 +363,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -36\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 0, 32(1)\n" \
 "	mtlr 0\n" \
@@ -411,7 +411,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -40\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 0, 32(1)\n" \
 "	mtlr 0\n" \
@@ -461,7 +461,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -44\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 0, 32(1)\n" \
 "	mtlr 0\n" \
@@ -513,7 +513,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -48\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 0, 32(1)\n" \
 "	mtlr 0\n" \
@@ -551,7 +551,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -16\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "1:\n" \
 "	ld 0, 32(1)\n" \
@@ -592,7 +592,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -20\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "1:\n" \
 "	ld 0, 32(1)\n" \
@@ -635,7 +635,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -24\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "1:\n" \
 "	ld 0, 32(1)\n" \
@@ -680,7 +680,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -28\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "1:\n" \
 "	ld 0, 32(1)\n" \
@@ -727,7 +727,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -32\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "1:\n" \
 "	ld 0, 32(1)\n" \
@@ -776,7 +776,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -36\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "1:\n" \
 "	ld 0, 32(1)\n" \
@@ -827,7 +827,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -40\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "1:\n" \
 "	ld 0, 32(1)\n" \
@@ -880,7 +880,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -44\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "1:\n" \
 "	ld 0, 32(1)\n" \
@@ -935,7 +935,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -48\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "1:\n" \
 "	ld 0, 32(1)\n" \
@@ -971,7 +971,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -16\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	nop\n" \
 "	nop\n" \
@@ -1009,7 +1009,7 @@ ret _##name args
 "	addi 2, 2, -16\n" \
 "	add  2, 2, 0\n" \
 "	std 3, 48(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 3, 48(1)\n" \
 "	nop\n" \
@@ -1049,7 +1049,7 @@ ret _##name args
 "	add  2, 2, 0\n" \
 "	std 3, 48(1)\n" \
 "	std 4, 56(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 3, 48(1)\n" \
 "	ld 4, 56(1)\n" \
@@ -1091,7 +1091,7 @@ ret _##name args
 "	std 3, 48(1)\n" \
 "	std 4, 56(1)\n" \
 "	std 5, 64(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 3, 48(1)\n" \
 "	ld 4, 56(1)\n" \
@@ -1135,7 +1135,7 @@ ret _##name args
 "	std 4, 56(1)\n" \
 "	std 5, 64(1)\n" \
 "	std 6, 72(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 3, 48(1)\n" \
 "	ld 4, 56(1)\n" \
@@ -1181,7 +1181,7 @@ ret _##name args
 "	std 5, 64(1)\n" \
 "	std 6, 72(1)\n" \
 "	std 7, 80(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 3, 48(1)\n" \
 "	ld 4, 56(1)\n" \
@@ -1229,7 +1229,7 @@ ret _##name args
 "	std 6, 72(1)\n" \
 "	std 7, 80(1)\n" \
 "	std 8, 88(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 3, 48(1)\n" \
 "	ld 4, 56(1)\n" \
@@ -1279,7 +1279,7 @@ ret _##name args
 "	std 7, 80(1)\n" \
 "	std 8, 88(1)\n" \
 "	std 9, 96(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 3, 48(1)\n" \
 "	ld 4, 56(1)\n" \
@@ -1331,7 +1331,7 @@ ret _##name args
 "	std 8, 88(1)\n" \
 "	std 9, 96(1)\n" \
 "	std 10, 104(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	ld 3, 48(1)\n" \
 "	ld 4, 56(1)\n" \
@@ -1376,7 +1376,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -16\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	extsw 4, 3\n" \
 "	cmpwi 4, -15007\n" \
@@ -1417,7 +1417,7 @@ ret _##name args
 "	addi 2, 2, -16\n" \
 "	add  2, 2, 0\n" \
 "	std 3, 48(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	extsw 4, 3\n" \
 "	cmpwi 4, -15007\n" \
@@ -1460,7 +1460,7 @@ ret _##name args
 "	add  2, 2, 0\n" \
 "	std 3, 48(1)\n" \
 "	std 4, 56(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	extsw 4, 3\n" \
 "	cmpwi 4, -15007\n" \
@@ -1505,7 +1505,7 @@ ret _##name args
 "	std 3, 48(1)\n" \
 "	std 4, 56(1)\n" \
 "	std 5, 64(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	extsw 4, 3\n" \
 "	cmpwi 4, -15007\n" \
@@ -1552,7 +1552,7 @@ ret _##name args
 "	std 4, 56(1)\n" \
 "	std 5, 64(1)\n" \
 "	std 6, 72(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	extsw 4, 3\n" \
 "	cmpwi 4, -15007\n" \
@@ -1601,7 +1601,7 @@ ret _##name args
 "	std 5, 64(1)\n" \
 "	std 6, 72(1)\n" \
 "	std 7, 80(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	extsw 4, 3\n" \
 "	cmpwi 4, -15007\n" \
@@ -1652,7 +1652,7 @@ ret _##name args
 "	std 6, 72(1)\n" \
 "	std 7, 80(1)\n" \
 "	std 8, 88(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	extsw 4, 3\n" \
 "	cmpwi 4, -15007\n" \
@@ -1705,7 +1705,7 @@ ret _##name args
 "	std 7, 80(1)\n" \
 "	std 8, 88(1)\n" \
 "	std 9, 96(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	extsw 4, 3\n" \
 "	cmpwi 4, -15007\n" \
@@ -1760,7 +1760,7 @@ ret _##name args
 "	std 8, 88(1)\n" \
 "	std 9, 96(1)\n" \
 "	std 10, 104(1)\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 2, 40(1)\n" \
 "	extsw 4, 3\n" \
 "	cmpwi 4, -15007\n" \
@@ -1808,7 +1808,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -16\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 4,  8(3)\n" \
 "	ld 3, 0(3)\n" \
 "	ld 2, 40(1)\n" \
@@ -1845,7 +1845,7 @@ ret _##name args
 "	mflr 2\n" \
 "	addi 2, 2, -16\n" \
 "	add  2, 2, 0\n" \
-"	bl .L._"#name"\n" \
+"	bl .L."#name"\n" \
 "	ld 4,  8(3)\n" \
 "	ld 5, 16(3)\n" \
 "	ld 6, 24(3)\n" \
@@ -1867,7 +1867,7 @@ typedef struct function_descriptor
 	void    *toc;	
 } f_desc_t;
 
-void 	clear_icache(void *addr, uint64_t size);
+extern void 	clear_icache(void *addr, uint64_t size) __asm__("clear_icache");
 void 	*get_call_address(int level);
 void	*get_patched_func_call_address(void);
 void	*get_patched_func_call_address2(void);

@@ -20,6 +20,7 @@
 #endif
 
 #define STAGE2_FILE	"/dev_flash/rebug/cobra/stage2.cex"
+//#define STAGE2_FILE	"/dev_hdd0/stage2.cex"
 
 void flash_mount_clone(void);
 
