@@ -6,6 +6,7 @@ OBJDUMP		:= ppu-objdump
 AR 		:= ppu-ar
 STRIP		:= ppu-strip
 INCLUDE		= ../common ../../ps2emu/include ../../lv1/include ../../debug/include
+INCLUDE += C:/PSDK3v2/ps3dev/ppu/ppu/include C:/PSDK3v2/MinGW/include
 LIBSDIR         =
 LIBS            =
 BUILD_TYPE      = release

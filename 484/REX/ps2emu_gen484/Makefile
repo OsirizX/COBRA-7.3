@@ -1,3 +1,4 @@
+CC=gcc
 OUTPUT=ps2emu_gen
 OBJS=main.o 
 CFLAGS=-Wall -I. --std=gnu99
